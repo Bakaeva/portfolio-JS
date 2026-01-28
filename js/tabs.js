@@ -28,20 +28,12 @@ tabButtons.forEach((tabButton) => {
             }
         });
 
-        tabTitles.forEach((title) => {
-            if (tabsHandler === "interior") {
-                if (title.textContent.trim() === "Портфолио") {
-                    title.classList.remove('hidden');
-                } else { // title.textContent === "Притягивает взгляды"
-                    title.classList.add('hidden');
-                }
-            } else { // tabsHandler === "body"
-                if (title.textContent.trim() === "Портфолио") {
-                    title.classList.add('hidden');
-                } else { // title.valtextContentue === "Притягивает взгляды"
-                    title.classList.remove('hidden');
-                }
-            }
+        tabTitles.forEach((tabTitle) => {
+            const isPortfolio = tabTitle.textContent.trim() === "Портфолио";
+            tabTitle.classList.toggle('hidden', tabsHandler === "interior" ? !isPortfolio : isPortfolio);
+
+            if (!tabTitle.classList.contains('hidden'))
+                document.title = tabTitle.textContent.trim();
         });
 
         changeContent(tabBlockImages, tabsHandler);
