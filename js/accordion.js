@@ -1,12 +1,12 @@
 'use strict';
 
-const accordeon = () => {
+const accordion = () => {
     const accord = document.querySelector('.feature-list');
-    const accordeonButtons = accord.querySelectorAll('.feature__link');
+    const accordionButtons = accord.querySelectorAll('.feature__link');
 
-    accordeonButtons.forEach((btn) => {
+    accordionButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
-            accordeonButtons.forEach((button) => {
+            accordionButtons.forEach((button) => {
                 button.classList.remove('feature__link_active');
                 button.nextElementSibling.classList.add('hidden');
             });
@@ -17,4 +17,4 @@ const accordeon = () => {
     });
 };
 
-accordeon();
+accordion();
